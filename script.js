@@ -95,41 +95,6 @@ const observer = new IntersectionObserver(
 
 revealElements.forEach((element) => observer.observe(element));
 
-// RSVP form placeholder
-const rsvpForm = document.getElementById("rsvpForm");
-const formStatus = document.getElementById("formStatus");
-
-rsvpForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-
-  const formData = new FormData(rsvpForm);
-  const data = Object.fromEntries(formData.entries());
-
-  /*
-    FRONT-END ONLY FOR NOW.
-    Later, connect this part to your service.
-
-    Example with a backend API:
-    fetch("https://your-api.com/rsvp", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    });
-
-    Example with Formspree:
-    - Replace form action="#" in index.html with your Formspree URL
-    - Remove event.preventDefault() if you want native form submission
-  */
-
-  console.log("RSVP data:", data);
-
-  formStatus.textContent =
-    "Merci, votre réponse a bien été préparée. Connexion au formulaire à ajouter ensuite.";
-
-  rsvpForm.reset();
-});
-
-
 // Premium photo carousel
 const carousel = document.getElementById("photoCarousel");
 const carouselTrack = document.getElementById("carouselTrack");
@@ -280,4 +245,48 @@ if (backgroundMusic && musicToggle) {
   });
 
   updateMusicButton();
+}
+
+const rsvpForm = document.getElementById("rsvpForm");
+const formStatus = document.getElementById("formStatus");
+const submitButton = document.getElementById("submitButton");
+
+if (rsvpForm) {
+  rsvpForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    formStatus.textContent = "Envoi en cours...";
+    formStatus.classList.remove("error");
+
+    if (submitButton) {
+      submitButton.disabled = true;
+    }
+
+    const formData = new FormData(rsvpForm);
+
+    try {
+      const response = await fetch(rsvpForm.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        formStatus.textContent = "Merci, votre réponse a bien été envoyée.";
+        rsvpForm.reset();
+      } else {
+        formStatus.textContent = "Une erreur est survenue. Merci de réessayer.";
+        formStatus.classList.add("error");
+      }
+    } catch (error) {
+      formStatus.textContent = "Impossible d’envoyer le formulaire pour le moment.";
+      formStatus.classList.add("error");
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+      }
+    }
+  });
 }
