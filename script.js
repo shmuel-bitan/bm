@@ -251,12 +251,100 @@ const rsvpForm = document.getElementById("rsvpForm");
 const formStatus = document.getElementById("formStatus");
 const submitButton = document.getElementById("submitButton");
 
+const formModeBtn = document.getElementById("formModeBtn");
+const whatsappModeBtn = document.getElementById("whatsappModeBtn");
+const rsvpModeText = document.getElementById("rsvpModeText");
+
+/*
+  Mets ici le numéro WhatsApp qui doit recevoir les réponses.
+  Format obligatoire : indicatif pays + numéro, sans +, sans espaces.
+  Exemple France : 33612345678
+  Exemple Israël : 972501234567
+*/
+const WHATSAPP_PHONE_NUMBER = "33607107909";
+
+let rsvpMode = "whatsapp";
+
+function updateRsvpMode() {
+  if (rsvpMode === "form") {
+    formModeBtn.classList.add("active");
+    whatsappModeBtn.classList.remove("active");
+
+    rsvpModeText.textContent =
+      "Votre réponse sera envoyée directement via le formulaire.";
+
+    submitButton.textContent = "Envoyer ma réponse";
+  } else {
+    whatsappModeBtn.classList.add("active");
+    formModeBtn.classList.remove("active");
+
+    rsvpModeText.textContent =
+      "Votre réponse ouvrira WhatsApp avec un message déjà préparé.";
+
+    submitButton.textContent = "Envoyer via WhatsApp";
+  }
+
+  formStatus.textContent = "";
+  formStatus.classList.remove("error");
+}
+
+if (formModeBtn && whatsappModeBtn) {
+  formModeBtn.addEventListener("click", () => {
+    rsvpMode = "form";
+    updateRsvpMode();
+  });
+
+  whatsappModeBtn.addEventListener("click", () => {
+    rsvpMode = "whatsapp";
+    updateRsvpMode();
+  });
+
+  updateRsvpMode();
+}
+
+function openWhatsAppMessage() {
+  const firstName = document.getElementById("firstName").value.trim();
+  const lastName = document.getElementById("lastName").value.trim();
+  const attendance = document.getElementById("attendance").value;
+  const message = document.getElementById("message").value.trim();
+
+  let whatsappMessage = `Bonjour, voici ma réponse pour la Bar Mitzvah de Harry :\n\n`;
+  whatsappMessage += `Prénom : ${firstName}\n`;
+  whatsappMessage += `Nom : ${lastName}\n`;
+  whatsappMessage += `Présence : ${attendance}\n`;
+
+  if (message) {
+    whatsappMessage += `Message pour Harry : ${message}\n`;
+  }
+
+  whatsappMessage += `\nMerci beaucoup.`;
+
+  const encodedMessage = encodeURIComponent(whatsappMessage);
+  const whatsappUrl = `https://wa.me/${WHATSAPP_PHONE_NUMBER}?text=${encodedMessage}`;
+
+  window.open(whatsappUrl, "_blank");
+}
+
 if (rsvpForm) {
   rsvpForm.addEventListener("submit", async function (event) {
     event.preventDefault();
 
-    formStatus.textContent = "Envoi en cours...";
+    formStatus.textContent = "";
     formStatus.classList.remove("error");
+
+    if (!rsvpForm.checkValidity()) {
+      rsvpForm.reportValidity();
+      return;
+    }
+
+    if (rsvpMode === "whatsapp") {
+      openWhatsAppMessage();
+      formStatus.textContent =
+        "WhatsApp s’est ouvert avec votre réponse. Il ne reste plus qu’à l’envoyer.";
+      return;
+    }
+
+    formStatus.textContent = "Envoi en cours...";
 
     if (submitButton) {
       submitButton.disabled = true;
@@ -281,7 +369,8 @@ if (rsvpForm) {
         formStatus.classList.add("error");
       }
     } catch (error) {
-      formStatus.textContent = "Impossible d’envoyer le formulaire pour le moment.";
+      formStatus.textContent =
+        "Impossible d’envoyer le formulaire pour le moment.";
       formStatus.classList.add("error");
     } finally {
       if (submitButton) {

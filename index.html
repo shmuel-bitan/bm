@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bar Mitzvah de Harry Assaban</title>
-
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="apple-touch-icon" href="images/logo.png">
   <!-- Google Fonts: easy to change later -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,12 +33,12 @@
 <button id="musicToggle" class="music-toggle" aria-label="Activer ou couper la musique">
   🔇
 </button>
-  <header class="site-header" id="top">
+  <header class="site-header">
     <nav class="navbar">
       <a href="#top" class="brand">
-        <span class="brand-mark">✦</span>
-        <span>Harry Assaban</span>
-      </a>
+  <img src="images/logo.png" alt="Logo Harry Assaban" class="brand-logo" />
+  <span>Harry Assaban</span>
+</a>
 
       <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu">
         <span></span>
@@ -57,15 +58,15 @@
 
   <main>
     <!-- HERO -->
-    <section class="hero">
+    <section class="hero" id="top">
       <div class="hero-overlay"></div>
 
       <div class="ornament ornament-left">✧</div>
       <div class="ornament ornament-right">✧</div>
 
-      <div class="hero-content reveal">
+      <div class="hero-content reveal" id="top">
         <p class="eyebrow">בס״ד · Une journée de joie et de lumière</p>
-        <h1>Bar Mitzvah de <span>Harry Assaban</span></h1>
+        <h1>Bar Mitzvah de <br><span> Harry Mordekhaï Sydney</span></h1>
         <p class="hero-subtitle">
           Nous serions très heureux de partager avec vous ce moment unique,
           entourés de notre famille et de nos amis.
@@ -121,7 +122,7 @@
       <div class="info-grid">
         <article class="info-card reveal">
           <div class="card-icon">✡</div>
-          <h3>Cérémonie</h3>
+          <h3>Mise des Téfilines</h3>
           <p class="info-date">Dimanche 28 juin 2026 · 8h15</p>
           <p>
             Synagogue Rebbi Haï Taieb Lo Met<br />
@@ -171,8 +172,8 @@
         <div class="timeline-item">
           <div class="timeline-time">8h15</div>
           <div class="timeline-content">
-            <h3>Office & cérémonie</h3>
-            <p>Accueil à la synagogue, prière et moment familial autour de la Bar Mitzvah.</p>
+            <h3>Office</h3>
+            <p>Accueil à la synagogue,mise des tefilines et chaharit.</p>
           </div>
         </div>
 
@@ -180,7 +181,7 @@
           <div class="timeline-time">13h00</div>
           <div class="timeline-content">
             <h3>Réception</h3>
-            <p>Accueil des invités à l’Hôtel Bony dans une ambiance chaleureuse et raffinée.</p>
+            <p>Accueil des invités à l’Hôtel Bony.</p>
           </div>
         </div>
 
@@ -188,7 +189,7 @@
           <div class="timeline-time">14h00</div>
           <div class="timeline-content">
             <h3>Repas</h3>
-            <p>Déjeuner festif autour de la famille, des amis et des proches.</p>
+            <p>Déjeuner festif autour de la famille et des amis.</p>
           </div>
         </div>
 
@@ -220,7 +221,7 @@
       <div class="carousel-track" id="carouselTrack">
 
         <article class="carousel-slide">
-          <img src="images/rabbi.jpg" />
+          <img src="images/kotel.png" />
           <div class="slide-caption">
             <span>Au Kotel</span>
             <h3></h3>
@@ -236,20 +237,20 @@
         </article>
 
         <article class="carousel-slide">
-          <img src="images/rabbi.jpg" />
+          <img src="images/talmud.png" />
           <div class="slide-caption">
-            <span>Réception</span>
-            <h3>Moment festif</h3>
+            <span>Au talmud torah</span>
+            <h3></h3>
           </div>
         </article>
 
-        <article class="carousel-slide">
+        <!--article class="carousel-slide">
           <img src="images/rabbi.jpg" alt="Table de fête" />
           <div class="slide-caption">
-            <span>Famille</span>
-            <h3>Partage & joie</h3>
+            <span>En Famille</span>
+            <h3></h3>
           </div>
-        </article>
+        </article!-->
 
       </div>
     </div>
@@ -288,7 +289,25 @@
         - Google Forms: connect with your generated form URL
         - Airtable/API: send data from script.js using fetch()
       -->
-<form 
+
+      <div class="rsvp-mode-box">
+  <p class="rsvp-mode-title">Choisissez votre mode de réponse</p>
+
+  <div class="rsvp-toggle">
+    <button type="button" class="rsvp-toggle-btn active" id="formModeBtn">
+      Formulaire
+    </button>
+
+    <button type="button" class="rsvp-toggle-btn" id="whatsappModeBtn">
+      WhatsApp
+    </button>
+  </div>
+
+  <p class="rsvp-mode-text" id="rsvpModeText">
+    Votre réponse sera envoyée directement via le formulaire.
+  </p>
+</div>
+      <form 
   class="rsvp-form" 
   id="rsvpForm" 
   action="https://formspree.io/f/xrejkpgd" 
@@ -356,7 +375,12 @@
       <p>Bar Mitzvah · Dimanche 28 juin 2026</p>
       <p class="footer-thanks">Merci de partager cette journée si spéciale avec nous.</p>
     </div>
-
+    <p class="made-by">
+  Made by 
+  <a href="https://iado.io" target="_blank" rel="noopener">
+    IADO.IO
+  </a>
+</p>
     <a href="#top" class="back-to-top">Retour en haut ↑</a>
   </footer>
 
