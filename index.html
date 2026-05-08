@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bar Mitzvah de Harry Assaban</title>
+
+  <!-- Google Fonts: easy to change later -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- 
+    =========================================================
+    BAR MITZVAH WEBSITE
+    Easy customization:
+    - Main texts: edit this HTML file
+    - Colors: edit :root variables in style.css
+    - Countdown date: edit EVENT_DATE in script.js
+    - Images: replace the URLs inside each <img> or background-image
+    =========================================================
+  -->
+
+  <header class="site-header" id="top">
+    <nav class="navbar">
+      <a href="#top" class="brand">
+        <span class="brand-mark">✦</span>
+        <span>Harry Assaban</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#countdown">Compte à rebours</a>
+        <a href="#infos">Informations</a>
+        <a href="#programme">Programme</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#rsvp" class="nav-cta">Confirmer</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-overlay"></div>
+
+      <div class="ornament ornament-left">✧</div>
+      <div class="ornament ornament-right">✧</div>
+
+      <div class="hero-content reveal">
+        <p class="eyebrow">בס״ד · Une journée de joie et de lumière</p>
+        <h1>Bar Mitzvah de <span>Harry Assaban</span></h1>
+        <p class="hero-subtitle">
+          Nous serions très heureux de partager avec vous ce moment unique,
+          entourés de notre famille et de nos amis.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#rsvp" class="btn btn-primary">Confirmer ma présence</a>
+          <a href="#infos" class="btn btn-secondary">Voir les informations</a>
+        </div>
+      </div>
+
+      <a href="#countdown" class="scroll-indicator" aria-label="Descendre">
+        <span></span>
+      </a>
+    </section>
+
+    <!-- COUNTDOWN -->
+    <section class="section countdown-section" id="countdown">
+      <div class="section-header reveal">
+        <p class="section-kicker">Le grand jour approche</p>
+        <h2>Compte à rebours</h2>
+        <p>Dimanche 28 juin 2026</p>
+      </div>
+
+      <div class="countdown-grid reveal" aria-label="Compte à rebours avant l'événement">
+        <div class="countdown-card">
+          <strong id="days">00</strong>
+          <span>Jours</span>
+        </div>
+        <div class="countdown-card">
+          <strong id="hours">00</strong>
+          <span>Heures</span>
+        </div>
+        <div class="countdown-card">
+          <strong id="minutes">00</strong>
+          <span>Minutes</span>
+        </div>
+        <div class="countdown-card">
+          <strong id="seconds">00</strong>
+          <span>Secondes</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENT INFO -->
+    <section class="section info-section" id="infos">
+      <div class="section-header reveal">
+        <p class="section-kicker">Informations pratiques</p>
+        <h2>Lieu & horaires</h2>
+        <p>Tout ce qu’il faut savoir pour nous rejoindre facilement.</p>
+      </div>
+
+      <div class="info-grid">
+        <article class="info-card reveal">
+          <div class="card-icon">✡</div>
+          <h3>Cérémonie</h3>
+          <p class="info-date">Dimanche 28 juin 2026 · 8h15</p>
+          <p>
+            Synagogue Rebbi Haï Taieb Lo Met<br />
+            75 rue Julien Lacroix<br />
+            75020 Paris
+          </p>
+          <div class="card-actions">
+            <a class="small-btn" href="https://www.google.com/maps/search/?api=1&query=75%20rue%20Julien%20Lacroix%2075020%20Paris" target="_blank" rel="noopener">
+              Google Maps
+            </a>
+            <a class="small-btn" href="https://waze.com/ul?q=75%20rue%20Julien%20Lacroix%2075020%20Paris" target="_blank" rel="noopener">
+              Waze
+            </a>
+          </div>
+        </article>
+
+        <article class="info-card highlight-card reveal">
+          <div class="card-icon">✦</div>
+          <h3>Réception</h3>
+          <p class="info-date">Dimanche 28 juin 2026 · 13h00</p>
+          <p>
+            Hôtel Bony<br />
+            32 rue de Trévise<br />
+            75009 Paris
+          </p>
+          <div class="card-actions">
+            <a class="small-btn" href="https://www.google.com/maps/search/?api=1&query=32%20rue%20de%20Tr%C3%A9vise%2075009%20Paris" target="_blank" rel="noopener">
+              Google Maps
+            </a>
+            <a class="small-btn" href="https://waze.com/ul?q=32%20rue%20de%20Tr%C3%A9vise%2075009%20Paris" target="_blank" rel="noopener">
+              Waze
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SCHEDULE -->
+    <section class="section schedule-section" id="programme">
+      <div class="section-header reveal">
+        <p class="section-kicker">Déroulé de la journée</p>
+        <h2>Programme</h2>
+        <p>Une journée pensée pour célébrer ce moment avec élégance et joie.</p>
+      </div>
+
+      <div class="timeline reveal">
+        <div class="timeline-item">
+          <div class="timeline-time">8h15</div>
+          <div class="timeline-content">
+            <h3>Office & cérémonie</h3>
+            <p>Accueil à la synagogue, prière et moment familial autour de la Bar Mitzvah.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">13h00</div>
+          <div class="timeline-content">
+            <h3>Réception</h3>
+            <p>Accueil des invités à l’Hôtel Bony dans une ambiance chaleureuse et raffinée.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">14h00</div>
+          <div class="timeline-content">
+            <h3>Repas</h3>
+            <p>Déjeuner festif autour de la famille, des amis et des proches.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">16h00</div>
+          <div class="timeline-content">
+            <h3>Musique & animation</h3>
+            <p>Un moment de joie, de danse et de partage pour célébrer Harry.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY / THEME -->
+    <section class="section gallery-section" id="galerie">
+      <div class="section-header reveal">
+        <p class="section-kicker">Harry en image</p>
+        <p>
+          Remplacez facilement ces images par vos visuels : portrait, logo, photos,
+          illustrations de Jérusalem ou éléments graphiques du thème.
+        </p>
+      </div>
+
+      <div class="photo-carousel reveal" id="photoCarousel">
+    <button class="carousel-btn prev" id="carouselPrev" aria-label="Photo précédente">
+      ‹
+    </button>
+
+    <div class="carousel-track-wrapper">
+      <div class="carousel-track" id="carouselTrack">
+
+        <article class="carousel-slide">
+          <img src="images/rabbi.jpg" />
+          <div class="slide-caption">
+            <span>Thème</span>
+            <h3>Inspiration Jérusalem</h3>
+          </div>
+        </article>
+
+        <article class="carousel-slide">
+          <img src="images/rabbi.jpg" />
+          <div class="slide-caption">
+            <span>Ambiance</span>
+            <h3>Lumière dorée</h3>
+          </div>
+        </article>
+
+        <article class="carousel-slide">
+          <img src="images/rabbi.jpg" />
+          <div class="slide-caption">
+            <span>Réception</span>
+            <h3>Moment festif</h3>
+          </div>
+        </article>
+
+        <article class="carousel-slide">
+          <img src="images/rabbi.jpg" alt="Table de fête" />
+          <div class="slide-caption">
+            <span>Famille</span>
+            <h3>Partage & joie</h3>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <button class="carousel-btn next" id="carouselNext" aria-label="Photo suivante">›
+    </button>
+
+    <div class="carousel-dots" id="carouselDots"></div>
+  </div>
+</section>
+
+    <!-- PERSONAL MESSAGE -->
+    <section class="message-section">
+      <div class="message-card reveal">
+        <span class="message-symbol">✦</span>
+        <h2>Un moment précieux à partager</h2>
+        <p>
+          Nous serions ravis de vous compter parmi nous pour célébrer la Bar Mitzvah
+          de Harry. Votre présence rendra cette journée encore plus belle et inoubliable.
+        </p>
+      </div>
+    </section>
+
+    <!-- RSVP -->
+    <section class="section rsvp-section" id="rsvp">
+      <div class="section-header reveal">
+        <p class="section-kicker">Réponse souhaitée</p>
+        <h2>Confirmer votre présence</h2>
+        <p>Merci de nous indiquer votre présence afin de préparer au mieux cette belle journée.</p>
+      </div>
+
+      <!-- 
+        FRONT-END FORM FOR NOW
+        Later connection options:
+        - Formspree: replace action="#" with your Formspree endpoint
+        - Google Forms: connect with your generated form URL
+        - Airtable/API: send data from script.js using fetch()
+      -->
+      <form class="rsvp-form reveal" id="rsvpForm" action="#" method="POST">
+        <div class="form-row">
+          <label for="fullName">Nom complet</label>
+          <input type="text" id="fullName" name="fullName" placeholder="Votre nom" required />
+        </div>
+
+        <div class="form-row">
+          <label for="guests">Nombre de personnes</label>
+          <input type="number" id="guests" name="guests" min="1" max="20" value="1" required />
+        </div>
+
+        <div class="form-grid">
+          <div class="form-row">
+            <label for="ceremony">Présence à la cérémonie</label>
+            <select id="ceremony" name="ceremony" required>
+              <option value="">Choisir</option>
+              <option value="yes">Oui</option>
+              <option value="no">Non</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="reception">Présence à la réception</label>
+            <select id="reception" name="reception" required>
+              <option value="">Choisir</option>
+              <option value="yes">Oui</option>
+              <option value="no">Non</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label for="message">Message optionnel</label>
+          <textarea id="message" name="message" rows="5" placeholder="Un petit mot pour la famille..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary form-submit">Envoyer ma réponse</button>
+
+        <p class="form-status" id="formStatus" role="status"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>
+      <h2>Harry Assaban</h2>
+      <p>Bar Mitzvah · Dimanche 28 juin 2026</p>
+      <p class="footer-thanks">Merci de partager cette journée si spéciale avec nous.</p>
+    </div>
+
+    <a href="#top" class="back-to-top">Retour en haut ↑</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
