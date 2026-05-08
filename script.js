@@ -216,3 +216,68 @@ if (carousel && carouselTrack && carouselSlides.length > 0) {
   carousel.addEventListener("mouseenter", stopCarouselAutoplay);
   carousel.addEventListener("mouseleave", startCarouselAutoplay);
 }
+
+const backgroundMusic = document.getElementById("backgroundMusic");
+const musicToggle = document.getElementById("musicToggle");
+
+let musicStarted = false;
+
+function updateMusicButton() {
+  if (!backgroundMusic || !musicToggle) return;
+
+  if (backgroundMusic.paused) {
+    musicToggle.textContent = "🔇";
+    musicToggle.classList.remove("playing");
+    musicToggle.setAttribute("aria-label", "Activer la musique");
+  } else {
+    musicToggle.textContent = "🔊";
+    musicToggle.classList.add("playing");
+    musicToggle.setAttribute("aria-label", "Couper la musique");
+  }
+}
+
+async function startMusic() {
+  if (!backgroundMusic || musicStarted) return;
+
+  try {
+    backgroundMusic.volume = 0.45;
+    await backgroundMusic.play();
+    musicStarted = true;
+    updateMusicButton();
+  } catch (error) {
+    // Le navigateur bloque souvent l'autoplay avec son.
+    // La musique démarrera au premier clic de l'utilisateur.
+  }
+}
+
+if (backgroundMusic && musicToggle) {
+  startMusic();
+
+  document.addEventListener(
+    "click",
+    () => {
+      startMusic();
+    },
+    { once: true }
+  );
+
+  musicToggle.addEventListener("click", async function (event) {
+    event.stopPropagation();
+
+    if (backgroundMusic.paused) {
+      try {
+        backgroundMusic.volume = 0.45;
+        await backgroundMusic.play();
+        musicStarted = true;
+      } catch (error) {
+        console.log("Lecture audio bloquée par le navigateur.");
+      }
+    } else {
+      backgroundMusic.pause();
+    }
+
+    updateMusicButton();
+  });
+
+  updateMusicButton();
+}
