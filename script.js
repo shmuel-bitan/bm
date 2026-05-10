@@ -13,7 +13,7 @@
   Format: "YYYY-MM-DDTHH:mm:ss"
   Example below: 28 June 2026 at 08:15, Paris time.
 */
-const EVENT_DATE = "2026-06-28T08:15:00+02:00";
+const EVENT_DATE = "2026-06-28T08:00:00+02:00";
 
 // Countdown elements
 const daysElement = document.getElementById("days");
