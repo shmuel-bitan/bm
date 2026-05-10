@@ -305,14 +305,15 @@ if (formModeBtn && whatsappModeBtn) {
 function openWhatsAppMessage() {
   const firstName = document.getElementById("firstName").value.trim();
   const lastName = document.getElementById("lastName").value.trim();
-  const attendance = document.getElementById("attendance").value;
+  const tefilaAttendance = document.getElementById("tefilaAttendance").value;
+  const receptionAttendance = document.getElementById("receptionAttendance").value;
   const message = document.getElementById("message").value.trim();
 
   let whatsappMessage = `Bonjour, voici ma réponse pour la Bar Mitzvah de Harry :\n\n`;
   whatsappMessage += `Prénom : ${firstName}\n`;
   whatsappMessage += `Nom : ${lastName}\n`;
-  whatsappMessage += `Présence : ${attendance}\n`;
-
+  whatsappMessage += `Présence a la mise des tefilines: ${tefilaAttendance}\n`;
+  whatsappMessage += `Présence a la soirée : ${receptionAttendance}\n`;
   if (message) {
     whatsappMessage += `Message pour Harry : ${message}\n`;
   }

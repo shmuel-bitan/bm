@@ -229,7 +229,7 @@
         </article>
 
         <article class="carousel-slide">
-          <img src="images/rabbi.jpg" />
+          <img src="images/rabbi.png" />
           <div class="slide-caption">
             <span>Chez le rabbi</span>
             <h3></h3>
@@ -342,11 +342,20 @@
   </div>
 
   <div class="form-row">
-    <label for="attendance">Serez-vous présent ?</label>
-    <select id="attendance" name="Présence" required>
+    <label for="tefilaAttendance">Présent à la Téfila ?</label>
+    <select id="tefilaAttendance" name="Présence à la Téfila" required>
       <option value="">Choisir</option>
-      <option value="Oui">Oui, je serai présent</option>
-      <option value="Non">Non, je ne pourrai pas venir</option>
+      <option value="Oui">Oui, je serai présent à la Téfila</option>
+      <option value="Non">Non, je ne serai pas présent à la Téfila</option>
+    </select>
+  </div>
+
+  <div class="form-row">
+    <label for="receptionAttendance">Présent à la réception ?</label>
+    <select id="receptionAttendance" name="Présence à la réception" required>
+      <option value="">Choisir</option>
+      <option value="Oui">Oui, je serai présent à la réception</option>
+      <option value="Non">Non, je ne serai pas présent à la réception</option>
     </select>
   </div>
 
