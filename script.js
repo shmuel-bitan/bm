@@ -380,3 +380,20 @@ if (rsvpForm) {
     }
   });
 }
+
+const scrollIndicator = document.querySelector(".scroll-indicator");
+
+if (scrollIndicator) {
+  scrollIndicator.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    const target = document.querySelector("#countdown");
+
+    if (target) {
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  });
+}

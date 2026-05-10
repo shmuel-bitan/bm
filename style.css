@@ -1258,3 +1258,78 @@ textarea {
   padding: 4px;
   box-shadow: 0 8px 24px rgba(217, 181, 109, 0.22);
 }
+
+.scroll-indicator {
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  z-index: 5;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+
+  text-decoration: none;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  opacity: 0.9;
+
+  animation: scrollBounce 1.8s infinite ease-in-out;
+}
+
+.scroll-text {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+}
+
+.scroll-arrow {
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.4rem;
+  line-height: 1;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+@keyframes scrollBounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(10px);
+  }
+}
+
+.scroll-indicator:hover {
+ 
+}
+
+@media (max-width: 600px) {
+  .scroll-indicator {
+    bottom: 18px;
+  }
+
+  .scroll-text {
+    font-size: 0.72rem;
+  }
+
+  .scroll-arrow {
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+  }
+}
