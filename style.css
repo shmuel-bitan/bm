@@ -1315,7 +1315,7 @@ textarea {
 }
 
 .scroll-indicator:hover {
- 
+  opacity: 1;
 }
 
 @media (max-width: 600px) {
@@ -1332,4 +1332,57 @@ textarea {
     height: 30px;
     font-size: 1.2rem;
   }
+}
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-image: url("images/kotel-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Fade directement sur l’image */
+.hero-bg-fade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.35) 0%,
+      rgba(0, 0, 0, 0.25) 35%,
+      rgba(0, 0, 0, 0.45) 75%,
+      rgba(0, 0, 0, 0.75) 100%
+    );
+}
+
+/* Overlay élégant pour rendre le texte lisible */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(255, 220, 150, 0.12) 0%,
+      rgba(0, 0, 0, 0.25) 45%,
+      rgba(0, 0, 0, 0.65) 100%
+    );
+}
+
+/* Important : le texte passe au-dessus du fond */
+.hero-content,
+.ornament,
+.scroll-indicator {
+  position: relative;
+  z-index: 3;
 }
