@@ -312,8 +312,8 @@ function openWhatsAppMessage() {
   let whatsappMessage = `Bonjour, voici ma réponse pour la Bar Mitzvah de Harry :\n\n`;
   whatsappMessage += `Prénom : ${firstName}\n`;
   whatsappMessage += `Nom : ${lastName}\n`;
-  whatsappMessage += `Présence a la mise des tefilines: ${tefilaAttendance}\n`;
-  whatsappMessage += `Présence a la soirée : ${receptionAttendance}\n`;
+  whatsappMessage += `Présence à la mise des tefilines: ${tefilaAttendance}\n`;
+  whatsappMessage += `Présence à la soirée : ${receptionAttendance}\n`;
   if (message) {
     whatsappMessage += `Message pour Harry : ${message}\n`;
   }
