@@ -397,3 +397,58 @@ if (scrollIndicator) {
     }
   });
 }
+/* Easter egg Office */
+(() => {
+  const mainAudio = document.getElementById("backgroundMusic");
+  const officeAudio = document.getElementById("officeMusic");
+  const officeBlock = document.getElementById("officeTimelineItem");
+  const toggleButton = document.getElementById("musicToggle");
+
+  if (!mainAudio || !officeAudio || !officeBlock || !toggleButton) {
+    return;
+  }
+
+  let officeMode = false;
+  let mainWasPlaying = false;
+
+  officeBlock.addEventListener("click", () => {
+    const musicIsMuted = mainAudio.muted || mainAudio.paused;
+
+    if (musicIsMuted) {
+      return;
+    }
+
+    officeMode = true;
+    mainWasPlaying = !mainAudio.paused;
+
+    mainAudio.pause();
+
+    officeAudio.currentTime = 0;
+    officeAudio.muted = mainAudio.muted;
+
+    officeAudio.play().catch(() => {});
+  });
+
+  officeAudio.addEventListener("ended", () => {
+    officeMode = false;
+
+    if (!mainAudio.muted && mainWasPlaying) {
+      mainAudio.play().catch(() => {});
+    }
+  });
+
+  toggleButton.addEventListener("click", () => {
+    setTimeout(() => {
+      const isMutedNow = mainAudio.muted || mainAudio.paused;
+
+      officeAudio.muted = isMutedNow;
+
+      if (isMutedNow) {
+        officeAudio.pause();
+      } else if (officeMode) {
+        mainAudio.pause();
+        officeAudio.play().catch(() => {});
+      }
+    }, 0);
+  });
+})();

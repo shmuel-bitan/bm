@@ -29,7 +29,10 @@
   <source src="audio/music.mpeg" type="audio/mpeg">
   Votre navigateur ne supporte pas l’audio.
 </audio>
-
+<audio id="officeMusic">
+  <source src="audio/tikwa.mp3" type="audio/mpeg">
+  Votre navigateur ne supporte pas l’audio.
+</audio>
 <button id="musicToggle" class="music-toggle" aria-label="Activer ou couper la musique">
   🔇
 </button>
@@ -170,7 +173,7 @@
       </div>
 
       <div class="timeline reveal">
-        <div class="timeline-item">
+        <div class="timeline-item" id="officeTimelineItem">
           <div class="timeline-time">8h00</div>
           <div class="timeline-content">
             <h3>Office</h3>
